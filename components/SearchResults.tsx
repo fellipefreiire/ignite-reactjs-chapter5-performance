@@ -7,9 +7,10 @@ interface SearcHResultsProps {
     price: number
     title: string
   }>
+  onAddToWishList: (id: number) => void
 }
 
-export function SearchResults({ results }: SearcHResultsProps) {
+export function SearchResults({ results, onAddToWishList }: SearcHResultsProps) {
   const totalPrice = useMemo(() => {
     return results.reduce((total, product) => {
       return total + product.price
@@ -22,7 +23,7 @@ export function SearchResults({ results }: SearcHResultsProps) {
 
       {results.map(product => {
         return (
-          <ProductItem key={product.id} product={product} />
+          <ProductItem key={product.id} product={product} onAddToWishList={onAddToWishList} />
         )
       })}
     </div>
