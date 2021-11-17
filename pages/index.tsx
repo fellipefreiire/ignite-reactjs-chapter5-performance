@@ -51,10 +51,8 @@ const Home: NextPage = () => {
     setResults({ totalPrice, data: products })
   }
 
-  const addToWishList = useCallback(() => {
-    async (id: number) => {
-      console.log(id)
-    }
+  const addToWishList = useCallback(async (id: number) => {
+    console.log(id)
   }, [])
 
   return (
